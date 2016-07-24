@@ -1,0 +1,29 @@
+{
+  "name": "j5_components_exp",
+  "version": "1.0.0",
+  "description": "First try with arduino components running through johnny-five framework",
+  "main": "index.js",
+  "dependencies": {
+    "j5-songs": "^0.0.9",
+    "johnny-five": "^0.9.60"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FelipeMonobe/j5_components_exp.git"
+  },
+  "keywords": [
+    "arduino",
+    "johnny-five",
+    "j5"
+  ],
+  "author": "Felipe Monobe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FelipeMonobe/j5_components_exp/issues"
+  },
+  "homepage": "https://github.com/FelipeMonobe/j5_components_exp#readme"
+}
