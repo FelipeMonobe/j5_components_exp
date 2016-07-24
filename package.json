@@ -5,7 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "j5-songs": "^0.0.9",
-    "johnny-five": "^0.9.60"
+    "johnny-five": "^0.9.60",
+    "keypress": "^0.2.1"
   },
   "devDependencies": {},
   "scripts": {
