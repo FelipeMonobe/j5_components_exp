@@ -14,6 +14,7 @@
 - **Push-button Switch:** 2 position state switch;
 - **3-way Switch:** 3 position state switch;
 
+##Auxiliary components:
 - **Uno R3 Board**
 - **USB Cable**
 - **830 Point Protoboard**
@@ -23,5 +24,6 @@
 - **Electrolytic Capacitors (100uF)**
 - **Resistors (330Ω, 1KΩ, 10KΩ)**
 
-**Pending**
-~~Done~~
+###Status:
+- **Pending**
+- ~~Done~~
