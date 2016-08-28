@@ -1,30 +1,34 @@
-let five = require('johnny-five');
-let board = new five.Board();
+let five = require('johnny-five'),
+  board,
+  lcd;
+
+board = new five.Board();
 
 board.on('ready', () => {
-  let frame = 1,
-    frames = [':runninga:', ':runningb:'],
-    row = 0,
-    col = 0,
-    lcd = new five.LCD({
-      pins: [7, 8, 9, 10, 11, 12]
-    });
-
-  lcd.useChar('runninga');
-  lcd.useChar('runningb');
-
-  this.loop(300, () => {
-    lcd.clear()
-      .cursor(row, col)
-      .print(
-        frames[frame ^= 1]
-      );
-
-    if (++col === lcd.cols) {
-      col = 0;
-      if (++row === lcd.rows) {
-        row = 0;
-      }
-    }
+  lcd = new five.LCD({
+    pins: [7, 8, 9, 10, 11, 12],
+    backlight: 6,
+    rows: 2,
+    cols: 20
   });
+
+  lcd.useChar('smile');
+
+  lcd.clear().print('Aproximadamente');
+  lcd.cursor(1, 0);
+  lcd.print('1 hora depois...');
+
+  board.wait(3000, () => {
+    lcd.home().clear().print('LCD is now');
+    lcd.cursor(1, 0);
+    lcd.print('WORKING!!!');
+
+    board.wait(3000, () => {
+      lcd.home().clear().print('#ArduinoSundays');
+      lcd.cursor(1, 0);
+      lcd.print('com Johnny-five:smile:');
+    });
+  });
+
+  board.repl.inject({ lcd });
 });
