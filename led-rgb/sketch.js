@@ -12,14 +12,10 @@ board.on('ready', () => {
     });
 
   setInterval(() => {
-    randomColor = '#' + Math.floor(Math.random() * 16777215)
-      .toString(16);
+    randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
 
-    try {
-      led.color(randomColor);
-    } catch (e) {
-      led.color('#000000');
-    }
+    try { led.color(randomColor); }
+    catch (e) { led.color('#000000'); }
   }, 500);
 
   led.on();
