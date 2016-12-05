@@ -1,17 +1,21 @@
-let five = require('johnny-five'),
-  keypress = require('keypress'),
-  board = new five.Board();
+const five = require('johnny-five');
+const keypress = require('keypress');
 
-keypress(process.stdin);
+const board = new five.Board();
+const pin = 10;
+const stdinEncoding = 'utf-8';
+const stdinRawMode = true;
 
 board.on('ready', () => {
-  let servo = new five.Servo.Continuous(10);
+  const servo = new five.Servo.Continuous(pin);
+
+  keypress(process.stdin);
 
   console.log('Use Up and Down arrows for CW and CCW respectively. Space to stop.');
 
   process.stdin.resume();
-  process.stdin.setEncoding('utf8');
-  process.stdin.setRawMode(true);
+  process.stdin.setEncoding(stdinEncoding);
+  process.stdin.setRawMode(stdinRawMode);
 
   process.stdin.on('keypress', (ch, key) => {
     if (!key) { return; }

@@ -1,11 +1,14 @@
-let five = require('johnny-five'),
-  board = new five.Board();
+const five = require('johnny-five');
+
+const board = new five.Board();
 
 board.on('ready', () => {
-  let button = new five.Button(2),
-    led = new five.Led(13);
+  const buttonPin = 2;
+  const ledPin = 13;
+  const button = new five.Button(buttonPin),
+  const led = new five.Led(ledPin);
 
-    led.off();
+  led.off();
 
   button.on('hold', () => led.blink());
   button.on('press', () => led.on());

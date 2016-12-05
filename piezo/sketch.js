@@ -1,10 +1,13 @@
-let five = require('johnny-five');
-let songs = require('j5-songs');
-let board = new five.Board();
+const five = require('johnny-five');
+const songs = require('j5-songs');
+
+const board = new five.Board();
+const pin = 9;
+const selectedTheme = 'starwars-theme';
 
 board.on('ready', () => {
-  let piezo = new five.Piezo(9),
-    song = songs.load('starwars-theme');
+  const piezo = new five.Piezo(pin);
+  const song = songs.load(selectedTheme);
 
   piezo.play(song);
 });

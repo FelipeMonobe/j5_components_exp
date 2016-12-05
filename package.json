@@ -5,12 +5,14 @@
   "main": "index.js",
   "dependencies": {
     "j5-songs": "^0.0.9",
-    "johnny-five": "^0.9.60",
-    "keypress": "^0.2.1"
+    "johnny-five": "^0.10.6",
+    "keypress": "^0.2.1",
+    "nodebots-interchange": "^1.1.2"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "interchange": "node_modules/nodebots-interchange/bin/cli.js install --interactive"
   },
   "repository": {
     "type": "git",

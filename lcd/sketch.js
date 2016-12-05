@@ -1,16 +1,13 @@
-let five = require('johnny-five'),
-  board,
-  lcd;
+const five = require('johnny-five');
 
-board = new five.Board();
+const board = new five.Board();
 
 board.on('ready', () => {
-  lcd = new five.LCD({
-    pins: [7, 8, 9, 10, 11, 12],
-    backlight: 6,
-    rows: 2,
-    cols: 20
-  });
+  const pins = [7, 8, 9, 10, 11, 12];
+  const blacklight = 6;
+  const rows = 2;
+  const cols = 20;
+  const lcd = new five.LCD({ pins, backlight, rows, cols });
 
   lcd.useChar('smile');
 
