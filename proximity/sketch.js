@@ -1,18 +1,19 @@
-const five = require('johnny-five');
+const five = require('johnny-five')
 
-const board = new five.Board();
+const board = new five.Board()
+const controller = 'HCSR04'
+const pin = 7
+const freq = 1000
+const main = () => {
+  const proximity = new five.Proximity({ controller, pin,  freq })
+  const printProximity = () => {
+    process.stdout.clearLine()
+    process.stdout.cursorTo(0)
+    process.stdout.write(`[${new Date().toLocaleTimeString()}] ${proximity.cm} cm`)
+  }
 
-board.on('ready', () => {
-  const controller = 'HCSR04';
-  const pin = 7;
-  const proximity = new five.Proximity({ controller, pin });
+  console.log(`Printing proximity every ${freq/1000}s`)
+  proximity.on('data', printProximity)
+}
 
-  proximity.on('data', () => {
-    console.log('Proximity: ');
-    console.log(`  cm  : ${this.cm}`);
-    console.log(`  in  : ${this.in}`);
-    console.log('-----------------');
-  });
-
-  proximity.on('change', () => console.log('The obstruction has moved.'));
-});
+board.on('ready', main)

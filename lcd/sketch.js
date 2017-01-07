@@ -1,31 +1,28 @@
-const five = require('johnny-five');
+const five = require('johnny-five')
 
-const board = new five.Board();
+const board = new five.Board()
+const pins = [7, 8, 9, 10, 11, 12]
+const blacklight = 6
+const rows = 2
+const cols = 20
+const main = () => {
+  const lcd = new five.LCD({ pins, backlight, rows, cols })
+  const printLCD = (msgs) => {
+    lcd.clear().print(msgs[0])
+    lcd.cursor(1, 0)
+    lcd.print(msgs[1])
+  }
 
-board.on('ready', () => {
-  const pins = [7, 8, 9, 10, 11, 12];
-  const blacklight = 6;
-  const rows = 2;
-  const cols = 20;
-  const lcd = new five.LCD({ pins, backlight, rows, cols });
+  lcd.useChar('smile')
 
-  lcd.useChar('smile');
-
-  lcd.clear().print('Aproximadamente');
-  lcd.cursor(1, 0);
-  lcd.print('1 hora depois...');
+  printLCD(['Aproximadamente', '1 hora depois...'])
 
   board.wait(3000, () => {
-    lcd.home().clear().print('LCD is now');
-    lcd.cursor(1, 0);
-    lcd.print('WORKING!!!');
+    printLCD(['LCD is now', 'WORKING!!!'])
+    board.wait(3000, printLCD(['#ArduinoSundays', 'com Johnny-five:smile:']))
+  })
 
-    board.wait(3000, () => {
-      lcd.home().clear().print('#ArduinoSundays');
-      lcd.cursor(1, 0);
-      lcd.print('com Johnny-five:smile:');
-    });
-  });
+  board.repl.inject({ lcd })
+}
 
-  board.repl.inject({ lcd });
-});
+board.on('ready', main)

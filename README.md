@@ -3,10 +3,10 @@
 ##Components:
 
 - ~~**16x2 LCD Display:** Text display to output messages;~~
-- **Ultrasonic Distance Sensor:** Distance-aware device;
+- ~~**Ultrasonic Distance Sensor:** Distance-aware device;~~
 - ~~**9g TowerPro SG90 Micro Servo:** Angled or linear position motor;~~
 - **NTC Temperature Sensor:** Tempareature-aware device;
-- **LDR Light Sensor:** Light-aware device;
+- ~~**LDR Light Sensor (Photoresistor):** Light-aware device;~~
 - **Tilt Vibration Sensor:** Orientation-aware device;
 - ~~**Passive Buzzer (piezo):** Sound emitter;~~
 - ~~**Green and Red LEDs:** Light components;~~
