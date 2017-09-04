@@ -3,7 +3,7 @@ const five = require('johnny-five')
 const board = new five.Board()
 const controller = 'HCSR04'
 const pin = 7
-const freq = 1000
+const freq = 1 * 1000
 const main = () => {
   const proximity = new five.Proximity({ controller, pin,  freq })
   const printProximity = () => {
